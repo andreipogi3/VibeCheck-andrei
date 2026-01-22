@@ -1,26 +1,39 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VibeCheck 411L</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>VibeCheck 411L</h1>
-  <p>Click buttons. This page will fetch data from your Node.js API.</p>
+  <div class="liquid-bg"></div>
 
-  <div>
-    <button id="btnFortune">🔮 Fortune</button>
-    <button id="btnJoke">😂 Joke</button>
-    <button data-mood="happy" class="btnMood">😄 Happy</button>
-    <button data-mood="tired" class="btnMood">🥱 Tired</button>
-    <button data-mood="stressed" class="btnMood">😵‍💫 Stressed</button>
-    <button id="btnSmash">💥 SMASH!</button>
-    <button id="btnSecret">🕵️ Secret</button>
-  </div>
+  <main class="glass-card">
+    <header>
+      <h1>VibeCheck <span>411L</span></h1>
+      <p>Harmonize your digital frequency.</p>
+    </header>
 
-  <h2>Output</h2>
-  <pre id="out">Ready...</pre>
+    <section class="button-grid">
+      <button id="btnFortune" class="glass-btn"><span>🔮 Fortune</span></button>
+      <button id="btnJoke" class="glass-btn"><span>😂 Joke</span></button>
+      
+      <div class="mood-row">
+        <button data-mood="happy" class="btnMood glass-btn circle">😄</button>
+        <button data-mood="tired" class="btnMood glass-btn circle">🥱</button>
+        <button data-mood="stressed" class="btnMood glass-btn circle">😵‍💫</button>
+      </div>
+
+      <button id="btnSmash" class="glass-btn accent-red"><span>💥 SMASH!</span></button>
+      <button id="btnSecret" class="glass-btn accent-purple"><span>🕵️ Secret</span></button>
+    </section>
+
+    <div class="output-container">
+      <h3>Console Output</h3>
+      <pre id="out">Ready...</pre>
+    </div>
+  </main>
 
   <script src="app.js"></script>
 </body>
