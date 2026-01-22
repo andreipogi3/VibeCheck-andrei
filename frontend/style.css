@@ -1,0 +1,142 @@
+:root {
+  --bg-dark: #07070a;
+  --glass-fill: rgba(255, 255, 255, 0.05);
+  --glass-stroke: rgba(255, 255, 255, 0.15);
+  --accent-blue: #00d2ff;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-dark);
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  overflow: hidden;
+  transition: background 1s ease;
+}
+
+/* --- RESPONSIVE BACKGROUND BLOBS --- */
+.blob-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  filter: blur(80px);
+}
+
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Default Theme Colors */
+.blob-1 { top: -10%; left: -10%; background: #4f46e5; animation: drift 20s infinite alternate; }
+.blob-2 { bottom: -10%; right: -10%; background: #9333ea; animation: drift 25s infinite alternate-reverse; }
+.blob-3 { top: 40%; left: 30%; background: #06b6d4; }
+
+@keyframes drift {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(100px, 50px) scale(1.1); }
+}
+
+/* --- GLASS MORPHISM UI --- */
+.glass-shell {
+  background: var(--glass-fill);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-stroke);
+  border-radius: 48px;
+  padding: 40px;
+  width: 400px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  color: white;
+}
+
+h1 { font-size: 2rem; margin: 10px 0; font-weight: 700; text-align: center; }
+h1 span { opacity: 0.5; font-weight: 300; }
+
+.status-pill {
+  background: rgba(255,255,255,0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* --- LIQUID BUTTONS --- */
+.liquid-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--glass-stroke);
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
+}
+
+.liquid-btn .icon { font-size: 1.8rem; }
+.liquid-btn .label { font-size: 0.85rem; font-weight: 500; opacity: 0.8; }
+
+.liquid-btn:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.mood-strip { display: flex; gap: 10px; margin-bottom: 15px; }
+.sm { flex: 1; padding: 12px 5px; }
+.wide { width: 100%; flex-direction: row; justify-content: center; gap: 12px; margin-bottom: 10px; }
+
+/* Output Area */
+/* Container handles the boundaries */
+.output-display {
+  margin-top: 30px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  
+  /* Critical overflow fixes */
+  max-height: 180px;      /* Prevents the card from growing too tall */
+  overflow-y: auto;       /* Adds a smooth scroll if text is too long */
+  overflow-x: hidden;     /* Prevents horizontal stretching */
+  display: block;         /* Changed from flex to allow proper scrolling */
+}
+
+/* The text inside */
+#out {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0;
+  
+  /* Text Wrapping Logic */
+  white-space: pre-wrap;      /* Keeps line breaks but wraps text */
+  word-wrap: break-word;      /* Legacy support */
+  overflow-wrap: break-word;  /* Breaks very long strings (like URLs) */
+  word-break: break-word;     /* Ensures it doesn't push container width */
+}
+
+/* Make the scrollbar look like iOS (thin and subtle) */
+.output-display::-webkit-scrollbar {
+  width: 4px;
+}
+.output-display::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
