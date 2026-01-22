@@ -6,32 +6,56 @@
   <title>VibeCheck 411L</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="liquid-bg"></div>
+<body class="theme-default">
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
-  <main class="glass-card">
+  <main class="glass-shell">
     <header>
+      <div class="status-pill">System Active</div>
       <h1>VibeCheck <span>411L</span></h1>
-      <p>Harmonize your digital frequency.</p>
     </header>
 
-    <section class="button-grid">
-      <button id="btnFortune" class="glass-btn"><span>🔮 Fortune</span></button>
-      <button id="btnJoke" class="glass-btn"><span>😂 Joke</span></button>
-      
-      <div class="mood-row">
-        <button data-mood="happy" class="btnMood glass-btn circle">😄</button>
-        <button data-mood="tired" class="btnMood glass-btn circle">🥱</button>
-        <button data-mood="stressed" class="btnMood glass-btn circle">😵‍💫</button>
+    <div class="control-panel">
+      <div class="main-grid">
+        <button id="btnFortune" class="liquid-btn" data-theme="fortune">
+          <span class="icon">🔮</span>
+          <span class="label">Fortune</span>
+        </button>
+        <button id="btnJoke" class="liquid-btn" data-theme="joke">
+          <span class="icon">😂</span>
+          <span class="label">Daily Joke</span>
+        </button>
       </div>
 
-      <button id="btnSmash" class="glass-btn accent-red"><span>💥 SMASH!</span></button>
-      <button id="btnSecret" class="glass-btn accent-purple"><span>🕵️ Secret</span></button>
-    </section>
+      <div class="mood-strip">
+        <button data-mood="happy" class="btnMood liquid-btn sm" data-theme="happy">
+          <span class="icon">😄</span><span class="label">Happy</span>
+        </button>
+        <button data-mood="tired" class="btnMood liquid-btn sm" data-theme="tired">
+          <span class="icon">🥱</span><span class="label">Tired</span>
+        </button>
+        <button data-mood="stressed" class="btnMood liquid-btn sm" data-theme="stressed">
+          <span class="icon">😵‍💫</span><span class="label">Stressed</span>
+        </button>
+      </div>
 
-    <div class="output-container">
-      <h3>Console Output</h3>
-      <pre id="out">Ready...</pre>
+      <div class="action-footer">
+        <button id="btnSmash" class="liquid-btn wide danger" data-theme="smash">
+          <span class="icon">💥</span><span class="label">SMASH SYSTEM</span>
+        </button>
+        <button id="btnSecret" class="liquid-btn wide mystery" data-theme="secret">
+          <span class="icon">🕵️</span><span class="label">Access Secret</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="output-display">
+      <div class="output-header">Live Response</div>
+      <pre id="out">Awaiting input...</pre>
     </div>
   </main>
 
